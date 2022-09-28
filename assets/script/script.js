@@ -1,5 +1,4 @@
 let searchedArtist = document.querySelector(`search`).value;
-const artist = '';
 replaceAll(` `, `-`);
 
 function top10ArtistTracks(){
@@ -16,10 +15,6 @@ function top10ArtistTracks(){
         .catch(function(error){
             //have it tell them we cannot find the artist they searched for.
         })
-};
-
-function top10ArtistAlbum(){
-    
 };
 
 function displayTop10Tracks(data){
@@ -39,7 +34,11 @@ const options = {
 	}
 };
 
-fetch('https://genius.p.rapidapi.com/search?q=' + (searchedArtist), options)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
+function relatedArtistData(searchedArtist){
+    fetch(`https://genius.p.rapidapi.com/search?q=${searchedArtist}${options}`)
+	    .then(response => response.json())
+	    .then(response => console.log(response))
+	    .catch(err => console.error(err));
+
+        
+}
