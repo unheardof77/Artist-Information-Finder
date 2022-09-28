@@ -22,12 +22,9 @@ function top10ArtistTracks(searchedArtist){
         })
 };
 
-function top10ArtistAlbum(){
-    
-};
 
 function displayTop10Tracks(data){
-    let $ul = document.getElementById(`bestof`);
+    let $ul = document.getElementById(`bestOf`);
     for(i=0; i < 10; i++ ){
         let $li = document.createElement(`li`);
         $li.textContent = data.track[i].strTrack;
@@ -42,9 +39,10 @@ const options = {
 		'X-RapidAPI-Host': 'genius.p.rapidapi.com'
 	}
 };
-function relatedArtistData(searchedArtist) {
+
+ function relatedArtistData(searchedArtist) {
     fetch(`https://genius.p.rapidapi.com/search?q=${searchedArtist}${options}`)
 	    .then(response => response.json())
 	    .then(response => console.log(response))
 	    .catch(err => console.error(err))
-}
+};
