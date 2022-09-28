@@ -1,3 +1,8 @@
+console.log("There is a turkey in my shoes.");
+console.log("His name is frankie.");
+
+
+
 let formSubmit = document.querySelector(`form`);
 //Controls all search functions.
 function searchAllApi(event){
@@ -40,9 +45,11 @@ const options = {
 	}
 };
 
+
  function relatedArtistData(searchedArtist) {
     fetch(`https://genius.p.rapidapi.com/search?q=${searchedArtist}${options}`)
 	    .then(response => response.json())
 	    .then(response => console.log(response))
 	    .catch(err => console.error(err))
 };
+
