@@ -6,7 +6,7 @@ function searchAllApi(event){
     top10ArtistTracks(searchedArtist);
 };
 //fetches information for top 10 artist
-function top10ArtistTracks(){
+function top10ArtistTracks(searchedArtist){
     fetch(`https://theaudiodb.com/api/v1/json/523532/track-top10.php?s=${searchedArtist}`)
         .then(function(response){
             if(response.ok){
