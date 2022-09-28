@@ -1,3 +1,37 @@
 body {
     background: linear-gradient(270deg, rgb(162, 207, 78), rgb(109, 234, 192), rgb(201, 50, 196));
 }
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.carousel {
+    align-items: center;
+    display: inherit;
+}
+
+.artistInfo {
+    font: black;
+    background: rgba(207, 22, 22, 0.705);
+    border-style: solid;
+    border-color: rgb(247, 243, 243);
+    border-width: 1px;
+}
+
+.topSongs {
+    font: black;
+    background: rgba(207, 22, 22, 0.705);
+    border-style: solid;
+    border-color: rgb(241, 239, 239);
+    border-width: 1px;
+}
+
+.albums {
+    font: black;
+    background: rgba(207, 22, 22, 0.705);
+    border-style: solid;
+    border-color: rgb(245, 240, 240);
+    border-width: 1px;
+}
