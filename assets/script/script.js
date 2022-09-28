@@ -1,7 +1,12 @@
-let searchedArtist = document.querySelector(`search`).value;
-replaceAll(` `, `-`);
-
-function top10ArtistTracks(){
+let formSubmit = document.querySelector(`form`);
+//Controls all search functions.
+function searchAllApi(event){
+    event.preventDefault();
+    let searchedArtist = document.querySelector(`input`).value.trim().replaceAll(` `, `-`);
+    top10ArtistTracks(searchedArtist);
+};
+//fetches information for top 10 artist
+function top10ArtistTracks(searchedArtist){
     fetch(`https://theaudiodb.com/api/v1/json/523532/track-top10.php?s=${searchedArtist}`)
         .then(function(response){
             if(response.ok){
@@ -37,8 +42,9 @@ const options = {
 		'X-RapidAPI-Host': 'genius.p.rapidapi.com'
 	}
 };
-
-fetch('https://genius.p.rapidapi.com/search?q=' + (searchedArtist), options)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
+function relatedArtistData(searchedArtist) {
+    fetch(`https://genius.p.rapidapi.com/search?q=${searchedArtist}${options}`)
+	    .then(response => response.json())
+	    .then(response => console.log(response))
+	    .catch(err => console.error(err))
+}
