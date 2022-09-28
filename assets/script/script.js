@@ -7,8 +7,9 @@ let formSubmit = document.querySelector(`form`);
 //Controls all search functions.
 function searchAllApi(event){
     event.preventDefault();
-    let searchedArtist = document.querySelector(`input`).value.trim().replaceAll(` `, `-`);
+    let searchedArtist = document.querySelector(`input`).value.trim().replaceAll(` `, `+`);
     top10ArtistTracks(searchedArtist);
+    relatedArtistData(searchedArtist);
 };
 //fetches information for top 10 artist
 function top10ArtistTracks(searchedArtist){
@@ -16,8 +17,7 @@ function top10ArtistTracks(searchedArtist){
         .then(function(response){
             if(response.ok){
                 response.json().then(function(data){
-                    displayTop10Tracks(data);
-                    return
+                    displayTop10Tracks(data, searchedArtist);
                 })
             }else{
                 //We'll have it run a error page.
@@ -27,18 +27,17 @@ function top10ArtistTracks(searchedArtist){
             //have it tell them we cannot find the artist they searched for.
         })
 };
-//Displays the information gathered from top10ArtistTracks.
+
+
 function displayTop10Tracks(data){
     let $ul = document.getElementById(`bestOf`);
-    for(i=0; i < 10; i++ ){
+    $ul.innerHTML = "";
+    for(i=0; i < data.track.length; i++ ){
         let $li = document.createElement(`li`);
         $li.textContent = data.track[i].strTrack;
         $ul.appendChild($li);
     }
-};
-
-formSubmit.addEventListener(`submit`, searchAllApi);
-
+}
 
 const options = {
 	method: 'GET',
@@ -48,8 +47,11 @@ const options = {
 	}
 };
 
-fetch('https://genius.p.rapidapi.com/search?q=' + (searchedArtist), options)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
+
+function relatedArtistData(searchedArtist) {
+    fetch(`https://genius.p.rapidapi.com/search?q=${searchedArtist}${options}`)
+	    .then(response => response.json())
+	    .then(response => console.log(response))
+	    .catch(err => console.error(err))
+};
 
