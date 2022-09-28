@@ -6,7 +6,7 @@ function searchAllApi(event){
     top10ArtistTracks(searchedArtist);
 };
 //fetches information for top 10 artist
-function top10ArtistTracks(searchedArtist){
+function top10ArtistTracks(){
     fetch(`https://theaudiodb.com/api/v1/json/523532/track-top10.php?s=${searchedArtist}`)
         .then(function(response){
             if(response.ok){
@@ -33,3 +33,17 @@ function displayTop10Tracks(data){
 };
 
 formSubmit.addEventListener(`submit`, searchAllApi);
+
+
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key':'08d6ec9a26mshf44c883a36529a8p13ff3ejsn3ee88f8bb6b3',
+		'X-RapidAPI-Host': 'genius.p.rapidapi.com'
+	}
+};
+
+fetch('https://genius.p.rapidapi.com/search?q=' + (searchedArtist), options)
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
