@@ -1,3 +1,4 @@
+
 main {
     background-color: #293D45;
 }
@@ -5,16 +6,20 @@ main {
 .main {
     display: flex;
     flex-wrap: wrap;
+    color: #fff;
+
 }
 
 .carousel {
+    display: flex;
+    flex-direction: row;
     align-items: center;
-
-    display: inherit;
+    justify-content: space-evenly;
+    color: #000;
 }
 
 .artistInfo {
-    color: #fff;
+    color: #000;
     background: #073245;
     border-style: solid;
     border-color: #566266;
@@ -22,7 +27,7 @@ main {
 }
 
 .topSongs {
-    color: #fff;
+    color: #000;
     background: #073245;
     border-style: solid;
     border-color: #566266;
@@ -30,7 +35,7 @@ main {
 }
 
 .albums {
-    color: #fff;
+    color: #000;
     background: #073245;
     border-style: solid;
     border-color: #566266;

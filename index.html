@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./assets/style/style.css">
     <script defer src="./assets/script/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <title>Document</title>
+    <title>The Music Index</title>
 </head>
 
 <body>
@@ -32,22 +32,15 @@
                     </nav>
                 </ul>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="bio">Bio</a></li>
-                    <li><a href="artistImg">Images</a></li>
+                    <li><a href="#bio">Bio</a></li>
+                    <li><a href="#artistImg">Images</a></li>
                 </ul>
             </div>
         </nav>
     </header>
     <main class="main">
         <section class="carousel">
-            <section class="artistInfo">
-                <div class="card">
-                    <img id="artistImg" alt="coverArt" style="width:100%">
-                    <div class="container">
-                        <h2 id="artistName"></h2>
-                    </div>
-                </div>
-            </section>
+
             <section class="topSongs">
                 <div class="card">
                     <div class="container">
@@ -56,7 +49,14 @@
                             <ul id="bestOf"></ul>
                     </div>
                 </div>
-                </section>
+            </section>            
+            <section class="artistInfo">
+                <div class="card">
+                    <img src="" alt="coverArt" style="width:100%">
+                    <div class="container">
+                        <h2 id="artistName">Artist Name</h2>
+                    </div>
+                </div>
             </section>
             <section class="albums">
                 <div class="card">
@@ -72,31 +72,27 @@
                             </ul>
                     </div>
                 </div>
-                </section>
-                <section class="artistSummary">
-                    <article id="briefSnip">
-                        <p id="snip"></p>
-                    </article>
-                </section>
             </section>
         </section>
-        <section id="bio">
-            <h2 id="bio-text">About the Artist</h2>
+        <section class="row">
+        <section id="bio" class="col s12">
+            <h2 id="bio-text" class="card-panel teal lighten-2">About the Artist</h2>
             <ul>
-                <li>Birthday: <span id="artistBirthday"></span></li>
-                <li>Living or Dead: <span id="artistLivingStatus"></span></li>
-                <li>Status of Band: <span id="artistBandStatus"></span></li>
-                <li>About: <span id="artistAbout"></span></li>
+                <li>Birthday:</li>
+                <li>Living or Dead:</li>
+                <li>Status of Band:</li>
+                <li>About:</li>
             </ul>
         </section>
-        <section id="related">
-            <h2 id="related-text">Related Acts</h2>
+        <section id="related" class="col s12">
+            <h2 id="related-text" class="card-panel teal lighten-2">Related Acts</h2>
             <ul>
                 <li id="related-1"></li>
                 <li id="related-2"></li>
                 <li id="related-3"></li>
             </ul>
         </section>
+    </section>
     </main>
     <footer>
         <nav class="header-footer">
