@@ -2,6 +2,14 @@ main {
     background-color: #293D45;
 }
 
+<<<<<<< HEAD
+=======
+.container {
+    background-color: gray;
+    color: black;
+}
+
+>>>>>>> 9ebb52075cdbb60b3e2103b5c958df65f46a4d6a
 .main {
     display: flex;
     flex-wrap: wrap;
@@ -72,7 +80,7 @@ main {
 }
 
 #related-text {
-   background: #566266;
+    background: #566266;
 }
 
 #header-footer {
@@ -84,6 +92,46 @@ main {
     filter:brightness(85%);
 }
 
-footer {
-    background: #073245; 
+
+.stats {
+    background: linear-gradient(45deg, #000000e0, #35d3b6cc);
+    color: #ffffffc9;
+    font-size: large;
+    font-weight: 600;
+    text-shadow: 2px 2px 3px #4a4a4a;
 }
+
+
+/*
+#stat1 {
+    background: linear-gradient(45deg, #000000e0, #35d3b6cc);
+    color: #ffffffc9;
+    font-size: large;
+    font-weight: 600;
+    text-shadow: 2px 2px 3px #4a4a4a;
+}
+
+#stat2 {
+    background: linear-gradient(45deg, #000000e0, #35d3b6cc);
+    color: #ffffffc9;
+    font-size: large;
+    font-weight: 600;
+    text-shadow: 2px 2px 3px #4a4a4a;
+}
+
+#stat3 {
+    background: linear-gradient(45deg, #000000e0, #35d3b6cc);
+    color: #ffffffc9;
+    font-size: large;
+    font-weight: 600;
+    text-shadow: 2px 2px 3px #4a4a4a;
+}
+
+#stat4 {
+    background: linear-gradient(45deg, #000000e0, #35d3b6cc);
+    color: #ffffffc9;
+    font-size: large;
+    font-weight: 600;
+    text-shadow: 2px 2px 3px #4a4a4a;
+}
+*/
