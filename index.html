@@ -42,9 +42,9 @@
         <section class="carousel">
             <section class="artistInfo">
                 <div class="card">
-                    <img src="" alt="coverArt" style="width:100%">
+                    <img id="artistImg" alt="coverArt" style="width:100%">
                     <div class="container">
-                        <h2 id="artistName">Artist Name</h2>
+                        <h2 id="artistName"></h2>
                     </div>
                 </div>
             </section>
@@ -84,10 +84,10 @@
         <section id="bio" class="col s12">
             <h2 id="bio-text" class="card-panel teal lighten-2">About the Artist</h2>
             <ul>
-                <li>Birthday:</li>
-                <li>Living or Dead:</li>
-                <li>Status of Band:</li>
-                <li>About:</li>
+                <li>Birthday: <span id="artistBirthday"></span></li>
+                <li>Living or Dead: <span id="artistLivingStatus"></span></li>
+                <li>Status of Band: <span id="artistBandStatus"></span></li>
+                <li>About: <span id="artistAbout"></span></li>
             </ul>
         </section>
         <section id="related" class="col s12">
