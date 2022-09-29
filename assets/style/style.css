@@ -5,6 +5,7 @@ body {
 .main {
     display: flex;
     flex-wrap: wrap;
+    font: blue;
 }
 
 .carousel {
@@ -35,3 +36,21 @@ body {
     border-color: rgb(245, 240, 240);
     border-width: 1px;
 }
+
+#bio {
+    font: white;
+    background: blue;
+    border-style: solid;
+    border-color: wheat;
+    border-width: 1px;
+}
+
+#related {
+    font: white;
+    background: blue;
+    border-style: solid;
+    border-color: wheat;
+    border-width: 1px;
+    
+}
+
