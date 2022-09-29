@@ -1,13 +1,16 @@
-body {
-    background-color: #293D45;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: #fff;
-}
+/* body {
+    display: flex;
+    justify
+} */
 
+main {
+    background-color: #293D45;
+}
 
 .main {
     display: flex;
     flex-wrap: wrap;
+    color: #fff;
 
 }
 
@@ -16,10 +19,11 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    
+    color: #000;
 }
 
 .artistInfo {
+    color: #000;
     background: #073245;
     border-style: solid;
     border-color: #566266;
@@ -27,6 +31,7 @@ body {
 }
 
 .topSongs {
+    color: #000;
     background: #073245;
     border-style: solid;
     border-color: #566266;
@@ -34,31 +39,18 @@ body {
 }
 
 .albums {
+    color: #000;
     background: #073245;
     border-style: solid;
     border-color: #566266;
     border-width: 1px;
 }
 
-#bio {
-    background: #073245;
-    border-style: solid;
-    border-color: #566266;
-    border-width: 1px;
-}
-
-#related {
-    background: #073245;
-    border-style: solid;
-    border-color: #566266;
-    border-width: 1px; 
-}
-
-#header-footer {
+.header-footer {
     background-color: #073245;
 }
 
-inputColor {
+.inputColor {
     background-color: #073245;
     filter:brightness(85%);
 }
