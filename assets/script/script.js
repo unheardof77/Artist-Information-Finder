@@ -13,14 +13,17 @@ function searchAllApi(event){
     $artistName.textContent = searchedArtist.replaceAll(`+`, ` `);
     top10ArtistTracks(searchedArtist);
     relatedArtistData(searchedArtist);
+    getArtistInformation(searchedArtist);
 };
+
+
 //fetches information for top 10 artist
 function top10ArtistTracks(searchedArtist){
     fetch(`https://theaudiodb.com/api/v1/json/523532/track-top10.php?s=${searchedArtist}`)
     .then(function(response){
         if(response.ok){
             response.json().then(function(data){
-                displayTop10Tracks(data, searchedArtist);
+                displayTop10Tracks(data);
             })
         }else{
             //We'll have it run a error page.
@@ -30,8 +33,7 @@ function top10ArtistTracks(searchedArtist){
         //have it tell them we cannot find the artist they searched for.
     })
 };
-
-
+//displays the data for top tracks
 function displayTop10Tracks(data){
     let $ul = document.getElementById(`bestOf`);
     $ul.innerHTML = "";
@@ -41,6 +43,42 @@ function displayTop10Tracks(data){
         $ul.appendChild($li);
     }
 }
+
+
+function getArtistInformation(searchedArtist){
+    fetch(`https://theaudiodb.com/api/v1/json/523532/search.php?s=${searchedArtist}`)
+    .then(function(response){
+        if(response.ok){
+            response.json().then(function(data){
+                displayArtistBio(data);
+                displayArtistImg(data);
+            })
+        }else{
+            //We'll have it run a error page.
+        };
+    })
+    .catch(function(error){
+        //have it tell them we cannot find the artist they searched for.
+    })
+};
+function displayArtistBio(data){
+    console.log(data)
+    let $artistAbout = document.getElementById(`artistAbout`);
+    let $artistBirthday = document.getElementById(`artistBirthday`);
+    let $artistLivingStatus = document.getElementById(`artistLivingStatus`);
+    $artistAbout.textContent = `${data.artists[0].strBiographyEN}`;
+    $artistBirthday.textContent = `${data.artists[0].intBornYear}`
+    if(data.artists[0].intDiedYear == null){
+        $artistLivingStatus.textContent = `Still alive and kicking.`;
+    }else{
+        $artistLivingStatus.textContent = `Sadly passed away in the year ${data.artists[0].intDiedYear}.`;
+    };
+};
+function displayArtistImg(data){
+    let $artistImg = document.getElementById(`artistImg`);
+    $artistImg.src = `${data.artists[0].strArtistLogo}`
+};
+
 
 const options = {
     method: 'GET',
