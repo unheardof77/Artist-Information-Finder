@@ -1,97 +1,47 @@
 let formSubmit = document.querySelector(`form`);
-//Controls all search functions.
+//Grabs information from spotify api
+function getArtistInformation(searchedArtist){
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '2e1c461465msh776fc0b587cf4abp196211jsn661d7c8e28a0',
+            'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+        }
+    };
+    
+    fetch(`https://spotify23.p.rapidapi.com/search/?q=${searchedArtist}&type=multi&offset=0&limit=10&numberOfTopResults=5`, options)
+        .then(response => response.json())
+        .then(response => displayTopAlbumTrackImg(response))
+        .catch(err => console.error(err));
+};
+//Runs after submit event listener, passes searched artist through to API fetch
 function searchAllApi(event){
     event.preventDefault();
     let searchedArtist = document.querySelector(`input`).value.trim().replaceAll(` `, `+`);
     $artistName = document.getElementById(`artistName`)
     $artistName.textContent = ""
     $artistName.textContent = searchedArtist.replaceAll(`+`, ` `);
-    top10ArtistTracks(searchedArtist);
-    relatedArtistData(searchedArtist);
     getArtistInformation(searchedArtist);
 };
-
-
-//fetches information for top 10 artist
-function top10ArtistTracks(searchedArtist){
-    fetch(`https://theaudiodb.com/api/v1/json/523532/track-top10.php?s=${searchedArtist}`)
-    .then(function(response){
-        if(response.ok){
-            response.json().then(function(data){
-                displayTop10Tracks(data);
-            })
-        }else{
-            //We'll have it run a error page.
-        };
-    })
-    .catch(function(error){
-        //have it tell them we cannot find the artist they searched for.
-    })
-};
-//displays the data for top tracks
-function displayTop10Tracks(data){
-    let $ul = document.getElementById(`bestOf`);
-    $ul.innerHTML = "";
-    for(i=0; i < data.track.length; i++ ){
-        let $li = document.createElement(`li`);
-        $li.textContent = data.track[i].strTrack;
-        $ul.appendChild($li);
-    }
-}
-
-//Gets artist information from audio db
-function getArtistInformation(searchedArtist){
-    fetch(`https://theaudiodb.com/api/v1/json/523532/search.php?s=${searchedArtist}`)
-    .then(function(response){
-        if(response.ok){
-            response.json().then(function(data){
-                displayArtistBio(data);
-                displayArtistImg(data);
-            })
-        };
-    })
-    .catch(function(error){
-        //have it tell them we cannot find the artist they searched for.
-    })
-};
-//Displays Artist information from audio db
-function displayArtistBio(data){
+// takes the info from the spotify api and displays it.
+function displayTopAlbumTrackImg(data){
     console.log(data)
-    let $artistAbout = document.getElementById(`artistAbout`);
-    let $artistBirthday = document.getElementById(`artistBirthday`);
-    let $artistLivingStatus = document.getElementById(`artistLivingStatus`);
-    $artistAbout.textContent = "";
-    $artistBirthday.textContent = "";
-    $artistAbout.textContent = `${data.artists[0].strBiographyEN}`;
-    $artistBirthday.textContent = `${data.artists[0].intBornYear}`;
-    $artistLivingStatus.textContent = "";
-    if(data.artists[0].intDiedYear == null){
-        $artistLivingStatus.textContent = `Still alive and kicking.`;
-    }else{
-        $artistLivingStatus.textContent = `Sadly passed away in the year ${data.artists[0].intDiedYear}.`;
-    };
-};
-//Displays an image from the audio DB
-function displayArtistImg(data){
     let $artistImg = document.getElementById(`artistImg`);
-    $artistImg.src = `${data.artists[0].strArtistFanart}`
+    let $ulTopTracks = document.getElementById(`bestOf`);
+    let $ulTopAlbums = document.getElementById(`listedAlbums`);
+    $artistImg.src = `${data.artists.items[0].data.visuals.avatarImage.sources[0].url}`;
+    $ulTopTracks.innerHTML = "";
+    for(i=0; i < data.tracks.items.length; i++ ){
+        let $li = document.createElement(`li`);
+        $li.textContent = data.tracks.items[i].data.name;
+        $ulTopTracks.appendChild($li);
+    };
+    $ulTopAlbums.innerHTML = "";
+    for(i=0; i < data.albums.items.length; i ++){
+        let $albumLi = document.createElement(`li`);
+        $albumLi.textContent = data.albums.items[i].data.name;
+        $ulTopAlbums.appendChild($albumLi);
+    }
 };
-
-
-const options = {
-    method: 'GET',
-	headers: {
-        'X-RapidAPI-Key':'08d6ec9a26mshf44c883a36529a8p13ff3ejsn3ee88f8bb6b3',
-		'X-RapidAPI-Host': 'genius.p.rapidapi.com'
-	}
-};
-
-
-function relatedArtistData(searchedArtist) {
-    fetch(`https://genius.p.rapidapi.com/search?q=${searchedArtist}${options}`)
-    .then(response => response.json())
-    .then(response => console.log(response))
-    .catch(err => console.error(err))
-};
-
+//Listens for the submit on the input to run searchAllApi function.
 formSubmit.addEventListener(`submit`, searchAllApi);
