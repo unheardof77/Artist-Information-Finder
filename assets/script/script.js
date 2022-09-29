@@ -29,7 +29,6 @@ function searchAllApi(event){
     $artistName.textContent = ""
     $artistName.textContent = searchedArtist.replaceAll(`+`, ` `);
     getArtistInformation(searchedArtist);
-    displayArtistBio(searchedArtist);
 };
 // takes the info from the spotify api and displays it.
 function displayTopAlbumTrackImg(data){
@@ -52,24 +51,24 @@ function displayTopAlbumTrackImg(data){
     }
 };
 
- function displayArtistBio(response){
+function displayArtistBio(response) {
     console.log(response)
     const bio = response.artist.bio.summary;
     const relatedArtistArray = response.artist.similar.artist;
     const relatedArtist = [];
     relatedArtistArray.forEach((element) => {
-      const name = element.name;
-      relatedArtist.push(name);
+        const name = element.name;
+        relatedArtist.push(name);
     });
     if (relatedArtist.length > 5) {
-      relatedArtist.length = 5;
+        relatedArtist.length = 5;
     }
     bioElement.innerHTML = bio;
     relatedElement.innerHTML = '';
     relatedArtist.forEach((item) => {
-      let li = document.createElement('p');
-      li.innerText = item;
-      relatedElement.appendChild(li);
+        let li = document.createElement('p');
+        li.innerText = item;
+        relatedElement.appendChild(li);
     });
 }
 
