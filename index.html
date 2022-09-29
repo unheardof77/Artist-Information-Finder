@@ -34,7 +34,6 @@
                     <li><a href="#bio">Bio</a></li>
                     <li><a href="#artistImg">Images</a></li>
                 </ul>
-         
         </nav>
     </header>
     <main class="main">
@@ -43,7 +42,7 @@
             <section class="topSongs">
                 <div class="card" style="background: #073245;">
                     <div class="container">
-                        <h2 id="topTracks">Top Tracks by Artist</h2>
+                        <h2 id="topTracks">Top Tracks</h2>
                         <section class="trackList">
                             <ul id="bestOf"></ul>
                     </div>
@@ -68,22 +67,23 @@
                 </div>
             </section>
         </section>
-        <section>
-            <div class="mb-4 p-4 w-full flex flex-col mb-16 items-center text-center">
-                <h1>
-                    Bio
-                </h1>
-                <p id="bio">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam obcaecati repudiandae deserunt tempore nesciunt, suscipit possimus incidunt accusantium autem saepe molestiae! Magnam nemo porro rerum soluta dolore asperiores, minus earum.
-                </p>
-                <h1>
-                    Related/Similar Artists
-                </h1>
-                
-                <p id="related" class="text-black max-w-3xl mb-6 leading-relaxed text-center">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum harum maiores nobis veniam delectus accusantium perspiciatis, nesciunt eos, quidem atque, ducimus suscipit vel dolores? Obcaecati vero incidunt quis repellendus aut!.
-                </p>
-            </div>
+        <section class="row">
+        <section id="bio" class="col s12">
+            <h2 id="bio-text">About the Artist</h2>
+            <ul class="stats">
+                <li id="stat1">Birthday:</li>
+                <li id="stat2">Living or Dead:</li>
+                <li id="stat3">Status of Band:</li>
+                <li id="stat4">About:</li>
+            </ul>
+        </section>
+        <section id="related" class="col s12">
+            <h2 id="related-text">Related Acts</h2>
+            <ul>
+                <li id="related-1"></li>
+                <li id="related-2"></li>
+                <li id="related-3"></li>
+            </ul>
         </section>
     </section>
     </main>
@@ -94,17 +94,16 @@
                     <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub Kitty logo"
                         class="responsive">
                 </div> -->
-                <ul class="flex mx-auto text-gray-700 text-sm text-center sm:text-left">
-                    <li><a href="https://github.com/unheardof77">Morgan Tolman</a></li>
-                    <li><a href="https://github.com/LeoRocca40">Leo Roccaforte</a></li>
-                    <li><a href="https://github.com/FunnyLookingFish">Lu Morales</a></li>
-                    <li><a href="https://github.com/IAMFALZIII">Fernando Zamora</a></li>
-                    <li><a href="https://github.com/joyhaliday">Joy Haliday</a></li>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="https://github.com/unheardof77" target="_blank" rel="noopener noreferrer">Morgan Tolman</a></li>
+                    <li><a href="https://github.com/LeoRocca40" target="_blank" rel="noopener noreferrer">Leo Roccaforte</a></li>
+                    <li><a href="https://github.com/FunnyLookingFish" target="_blank" rel="noopener noreferrer">Lu Morales</a></li>
+                    <li><a href="https://github.com/IAMFALZIII" target="_blank" rel="noopener noreferrer">Fernando Zamora</a></li>
+                    <li><a href="https://github.com/joyhaliday" target="_blank" rel="noopener noreferrer">Joy Haliday</a></li>
                 </ul>
             </div>
         </nav>
     </footer>
-
 </body>
 
 </html>
