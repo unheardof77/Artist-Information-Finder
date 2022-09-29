@@ -78,7 +78,7 @@ body {
     background-color: #073245;
 }
 
-inputColor {
+.inputColor {
     background-color: #073245;
     filter:brightness(85%);
 }
