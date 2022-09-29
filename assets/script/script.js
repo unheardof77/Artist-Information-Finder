@@ -51,7 +51,7 @@ function displayTopAlbumTrackImg(data){
         $ulTopAlbums.appendChild($albumLi);
     }
 };
-
+//Takes info from last.fm API and get the Artist Bio and Related Artist and displays it.
  function displayArtistBio(response){
     console.log(response)
     const bio = response.artist.bio.summary;
