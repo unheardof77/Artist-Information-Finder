@@ -1,29 +1,6 @@
 let formSubmit = document.querySelector(`form`);
-let isLoading = false
-const $websiteTitle = document.getElementsByClassName(`displayLoading`)
-function showLoadingScreen(){
-    $websiteTitleOriginalDisplay = $websiteTitle.value;
-    if(isLoading){
-        $websiteTitle.innerHTML = "";
-        $websiteTitle.innerHTML = "Loading";
-    }else{
-        $websiteTitle.innerHTML = `${$websiteTitleOriginalDisplay}`
-    };
-};
-
-//Runs after submit event listener, passes searched artist through to API fetch
-function searchAllApi(event){
-    event.preventDefault();
-    let searchedArtist = document.querySelector(`input`).value.trim().replaceAll(` `, `+`);
-    $artistName = document.getElementById(`artistName`)
-    $artistName.textContent = ""
-    $artistName.textContent = searchedArtist.replaceAll(`+`, ` `);
-    getArtistInformation(searchedArtist);
-};
 //Grabs information from spotify api
 function getArtistInformation(searchedArtist){
-    isLoading = true
-    showLoadingScreen()
     const options = {
         method: 'GET',
         headers: {
@@ -36,6 +13,16 @@ function getArtistInformation(searchedArtist){
         .then(response => response.json())
         .then(response => displayTopAlbumTrackImg(response))
         .catch(err => console.error(err));
+};
+//Runs after submit event listener, passes searched artist through to API fetch
+function searchAllApi(event){
+    event.preventDefault();
+    let searchedArtist = document.querySelector(`input`).value.trim().replaceAll(` `, `+`);
+    $artistName = document.getElementById(`artistName`)
+    $artistName.textContent = ""
+    $artistName.textContent = searchedArtist.replaceAll(`+`, ` `);
+    getArtistInformation(searchedArtist);
+    getArtistBio(searchedArtist);
 };
 // takes the info from the spotify api and displays it.
 function displayTopAlbumTrackImg(data){
@@ -57,5 +44,41 @@ function displayTopAlbumTrackImg(data){
         $ulTopAlbums.appendChild($albumLi);
     }
 };
+
+function getArtistBio(searchedArtist) {
+    fetch(
+        `https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${searchedArtist}&api_key=9195d8a142e3b0b3cc4437139475f607&format=json`
+    )
+        .then((response) => response.json())
+        .then((response) => displayArtistBio(response))
+        .catch((err) => console.error(err));
+}
+
+function displayArtistBio(response) {
+    console.log(response)
+    const bio = response.artist.bio.summary;
+    const relatedArtistArray = response.artist.similar.artist;
+    const relatedArtist = [];
+    relatedArtistArray.forEach((element) => {
+        const name = element.name;
+        relatedArtist.push(name);
+    });
+    if (relatedArtist.length > 5) {
+        relatedArtist.length = 5;
+    }
+    const position = bio.search('<a href');
+    let str = bio;
+    if (position != -1) {
+        str = bio.substr(0, position - 1);
+    }
+    bioElement.innerHTML = str;
+    relatedElement.innerHTML = '';
+    relatedArtist.forEach((item) => {
+        let li = document.createElement('p');
+        li.innerText = item;
+        relatedElement.appendChild(li);
+    });
+}
+
 //Listens for the submit on the input to run searchAllApi function.
-formSubmit.addEventListener(`submit`, searchAllApi);
+    formSubmit.addEventListener(`submit`, searchAllApi);
