@@ -1,8 +1,3 @@
-console.log("There is a turkey in my shoes.");
-console.log("His name is frankie.");
-
-
-
 let formSubmit = document.querySelector(`form`);
 //Controls all search functions.
 function searchAllApi(event){
@@ -44,7 +39,7 @@ function displayTop10Tracks(data){
     }
 }
 
-
+//Gets artist information from audio db
 function getArtistInformation(searchedArtist){
     fetch(`https://theaudiodb.com/api/v1/json/523532/search.php?s=${searchedArtist}`)
     .then(function(response){
@@ -53,30 +48,33 @@ function getArtistInformation(searchedArtist){
                 displayArtistBio(data);
                 displayArtistImg(data);
             })
-        }else{
-            //We'll have it run a error page.
         };
     })
     .catch(function(error){
         //have it tell them we cannot find the artist they searched for.
     })
 };
+//Displays Artist information from audio db
 function displayArtistBio(data){
     console.log(data)
     let $artistAbout = document.getElementById(`artistAbout`);
     let $artistBirthday = document.getElementById(`artistBirthday`);
     let $artistLivingStatus = document.getElementById(`artistLivingStatus`);
+    $artistAbout.textContent = "";
+    $artistBirthday.textContent = "";
     $artistAbout.textContent = `${data.artists[0].strBiographyEN}`;
-    $artistBirthday.textContent = `${data.artists[0].intBornYear}`
+    $artistBirthday.textContent = `${data.artists[0].intBornYear}`;
+    $artistLivingStatus.textContent = "";
     if(data.artists[0].intDiedYear == null){
         $artistLivingStatus.textContent = `Still alive and kicking.`;
     }else{
         $artistLivingStatus.textContent = `Sadly passed away in the year ${data.artists[0].intDiedYear}.`;
     };
 };
+//Displays an image from the audio DB
 function displayArtistImg(data){
     let $artistImg = document.getElementById(`artistImg`);
-    $artistImg.src = `${data.artists[0].strArtistLogo}`
+    $artistImg.src = `${data.artists[0].strArtistFanart}`
 };
 
 
