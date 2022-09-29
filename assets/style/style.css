@@ -1,11 +1,13 @@
 body {
     background: linear-gradient(270deg, rgb(162, 207, 78), rgb(109, 234, 192), rgb(201, 50, 196));
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
 }
 
 .main {
     display: flex;
     flex-wrap: wrap;
-    font: blue;
+    
 }
 
 .carousel {
@@ -14,7 +16,6 @@ body {
 }
 
 .artistInfo {
-    font: black;
     background: rgba(207, 22, 22, 0.705);
     border-style: solid;
     border-color: rgb(247, 243, 243);
@@ -22,7 +23,7 @@ body {
 }
 
 .topSongs {
-    font: black;
+    
     background: rgba(207, 22, 22, 0.705);
     border-style: solid;
     border-color: rgb(241, 239, 239);
@@ -30,7 +31,6 @@ body {
 }
 
 .albums {
-    font: black;
     background: rgba(207, 22, 22, 0.705);
     border-style: solid;
     border-color: rgb(245, 240, 240);
@@ -38,7 +38,6 @@ body {
 }
 
 #bio {
-    font: white;
     background: blue;
     border-style: solid;
     border-color: wheat;
@@ -46,11 +45,9 @@ body {
 }
 
 #related {
-    font: white;
     background: blue;
     border-style: solid;
     border-color: wheat;
-    border-width: 1px;
-    
+    border-width: 1px;   
 }
 
