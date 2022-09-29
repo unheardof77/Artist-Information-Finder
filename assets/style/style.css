@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(270deg, rgb(162, 207, 78), rgb(109, 234, 192), rgb(201, 50, 196));
+    background: linear-gradient(black, white);
 }
 
 .main {
@@ -54,3 +54,11 @@ body {
     
 }
 
+nav {
+    background-color: aquamarine;
+    color: black;
+}
+
+#title-name {
+    color: black;
+}
