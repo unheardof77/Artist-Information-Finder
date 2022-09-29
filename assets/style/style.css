@@ -18,15 +18,23 @@ main {
 }
 
 .artistInfo {
-    color: #000;
+    color: #fff;
     background: #073245;
     border-style: solid;
     border-color: #566266;
     border-width: 1px;
 }
 
+#artistName {
+    background: #566266;
+}
+
+#topTracks {
+    background: #566266;
+}
+
 .topSongs {
-    color: #000;
+    color: #fff;
     background: #073245;
     border-style: solid;
     border-color: #566266;
@@ -34,18 +42,48 @@ main {
 }
 
 .albums {
-    color: #000;
+    color: #fff;
     background: #073245;
     border-style: solid;
     border-color: #566266;
     border-width: 1px;
 }
 
-.header-footer {
+#knownAlbum {
+    background: #566266;
+}
+
+#bio {
+    background: #073245;
+    border-style: solid;
+    border-color: #566266;
+    border-width: 1px;
+}
+
+#bio-text {
+    background: #566266;
+}
+
+#related {
+    background: #073245;
+    border-style: solid;
+    border-color: #566266;
+    border-width: 1px; 
+}
+
+#related-text {
+   background: #566266;
+}
+
+#header-footer {
     background-color: #073245;
 }
 
 .inputColor {
     background-color: #073245;
     filter:brightness(85%);
+}
+
+footer {
+    background: #073245; 
 }
