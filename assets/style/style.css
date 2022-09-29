@@ -26,6 +26,14 @@ body {
     border-width: 1px;
 }
 
+#artistName {
+    background: #566266;
+}
+
+#topTracks {
+    background: #566266;
+}
+
 .topSongs {
     background: #073245;
     border-style: solid;
@@ -40,11 +48,19 @@ body {
     border-width: 1px;
 }
 
+#knownAlbum {
+    background: #566266;
+}
+
 #bio {
     background: #073245;
     border-style: solid;
     border-color: #566266;
     border-width: 1px;
+}
+
+#bio-text {
+    background: #566266;
 }
 
 #related {
@@ -54,6 +70,10 @@ body {
     border-width: 1px; 
 }
 
+#related-text {
+   background: #566266;
+}
+
 #header-footer {
     background-color: #073245;
 }
@@ -61,4 +81,8 @@ body {
 inputColor {
     background-color: #073245;
     filter:brightness(85%);
+}
+
+footer {
+    background: #073245; 
 }
