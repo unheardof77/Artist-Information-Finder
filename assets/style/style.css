@@ -1,53 +1,64 @@
 body {
-    background: linear-gradient(270deg, rgb(162, 207, 78), rgb(109, 234, 192), rgb(201, 50, 196));
+    background-color: #293D45;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: white;
+    color: #fff;
 }
+
 
 .main {
     display: flex;
     flex-wrap: wrap;
-    
+
 }
 
 .carousel {
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    display: inherit;
+    justify-content: space-evenly;
+    
 }
 
 .artistInfo {
-    background: rgba(207, 22, 22, 0.705);
+    background: #073245;
     border-style: solid;
-    border-color: rgb(247, 243, 243);
+    border-color: #566266;
     border-width: 1px;
 }
 
 .topSongs {
-    
-    background: rgba(207, 22, 22, 0.705);
+    background: #073245;
     border-style: solid;
-    border-color: rgb(241, 239, 239);
+    border-color: #566266;
     border-width: 1px;
 }
 
 .albums {
-    background: rgba(207, 22, 22, 0.705);
+    background: #073245;
     border-style: solid;
-    border-color: rgb(245, 240, 240);
+    border-color: #566266;
     border-width: 1px;
 }
 
 #bio {
-    background: blue;
+    background: #073245;
     border-style: solid;
-    border-color: wheat;
+    border-color: #566266;
     border-width: 1px;
 }
 
 #related {
-    background: blue;
+    background: #073245;
     border-style: solid;
-    border-color: wheat;
-    border-width: 1px;   
+    border-color: #566266;
+    border-width: 1px; 
 }
 
+#header-footer {
+    background-color: #073245;
+}
+
+inputColor {
+    background-color: #073245;
+    filter:brightness(85%);
+}
