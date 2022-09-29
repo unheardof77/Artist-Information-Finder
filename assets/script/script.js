@@ -1,6 +1,29 @@
 let formSubmit = document.querySelector(`form`);
+let isLoading = false
+const $websiteTitle = document.getElementsByClassName(`displayLoading`)
+function showLoadingScreen(){
+    $websiteTitleOriginalDisplay = $websiteTitle.value;
+    if(isLoading){
+        $websiteTitle.innerHTML = "";
+        $websiteTitle.innerHTML = "Loading";
+    }else{
+        $websiteTitle.innerHTML = `${$websiteTitleOriginalDisplay}`
+    };
+};
+
+//Runs after submit event listener, passes searched artist through to API fetch
+function searchAllApi(event){
+    event.preventDefault();
+    let searchedArtist = document.querySelector(`input`).value.trim().replaceAll(` `, `+`);
+    $artistName = document.getElementById(`artistName`)
+    $artistName.textContent = ""
+    $artistName.textContent = searchedArtist.replaceAll(`+`, ` `);
+    getArtistInformation(searchedArtist);
+};
 //Grabs information from spotify api
 function getArtistInformation(searchedArtist){
+    isLoading = true
+    showLoadingScreen()
     const options = {
         method: 'GET',
         headers: {
@@ -13,15 +36,6 @@ function getArtistInformation(searchedArtist){
         .then(response => response.json())
         .then(response => displayTopAlbumTrackImg(response))
         .catch(err => console.error(err));
-};
-//Runs after submit event listener, passes searched artist through to API fetch
-function searchAllApi(event){
-    event.preventDefault();
-    let searchedArtist = document.querySelector(`input`).value.trim().replaceAll(` `, `+`);
-    $artistName = document.getElementById(`artistName`)
-    $artistName.textContent = ""
-    $artistName.textContent = searchedArtist.replaceAll(`+`, ` `);
-    getArtistInformation(searchedArtist);
 };
 // takes the info from the spotify api and displays it.
 function displayTopAlbumTrackImg(data){
