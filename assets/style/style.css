@@ -1,12 +1,13 @@
-
-main {
+body {
     background-color: #293D45;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #fff;
 }
+
 
 .main {
     display: flex;
     flex-wrap: wrap;
-    color: #fff;
 
 }
 
@@ -15,11 +16,10 @@ main {
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    color: #000;
+    
 }
 
 .artistInfo {
-    color: #000;
     background: #073245;
     border-style: solid;
     border-color: #566266;
@@ -27,7 +27,6 @@ main {
 }
 
 .topSongs {
-    color: #000;
     background: #073245;
     border-style: solid;
     border-color: #566266;
@@ -35,18 +34,31 @@ main {
 }
 
 .albums {
-    color: #000;
     background: #073245;
     border-style: solid;
     border-color: #566266;
     border-width: 1px;
 }
 
-.header-footer {
+#bio {
+    background: #073245;
+    border-style: solid;
+    border-color: #566266;
+    border-width: 1px;
+}
+
+#related {
+    background: #073245;
+    border-style: solid;
+    border-color: #566266;
+    border-width: 1px; 
+}
+
+#header-footer {
     background-color: #073245;
 }
 
-.inputColor {
+inputColor {
     background-color: #073245;
     filter:brightness(85%);
 }
