@@ -1,13 +1,13 @@
 body {
-<<<<<<< HEAD
-    background: linear-gradient(black, white);
-=======
     background-color: #293D45;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: #fff;
->>>>>>> 49a3345cf40b434eb89d6e587f7686f36f213780
 }
 
+.container {
+    background-color: gray;
+    color: black;
+}
 
 .main {
     display: flex;
@@ -66,3 +66,47 @@ inputColor {
     background-color: #073245;
     filter:brightness(85%);
 }
+
+
+.stats {
+    background: linear-gradient(45deg, #000000e0, #35d3b6cc);
+    color: #ffffffc9;
+    font-size: large;
+    font-weight: 600;
+    text-shadow: 2px 2px 3px #4a4a4a;
+}
+
+
+/*
+#stat1 {
+    background: linear-gradient(45deg, #000000e0, #35d3b6cc);
+    color: #ffffffc9;
+    font-size: large;
+    font-weight: 600;
+    text-shadow: 2px 2px 3px #4a4a4a;
+}
+
+#stat2 {
+    background: linear-gradient(45deg, #000000e0, #35d3b6cc);
+    color: #ffffffc9;
+    font-size: large;
+    font-weight: 600;
+    text-shadow: 2px 2px 3px #4a4a4a;
+}
+
+#stat3 {
+    background: linear-gradient(45deg, #000000e0, #35d3b6cc);
+    color: #ffffffc9;
+    font-size: large;
+    font-weight: 600;
+    text-shadow: 2px 2px 3px #4a4a4a;
+}
+
+#stat4 {
+    background: linear-gradient(45deg, #000000e0, #35d3b6cc);
+    color: #ffffffc9;
+    font-size: large;
+    font-weight: 600;
+    text-shadow: 2px 2px 3px #4a4a4a;
+}
+*/
