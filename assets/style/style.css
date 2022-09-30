@@ -11,6 +11,10 @@ body {
     flex-direction: column;
 }
 
+.custom-carousel {
+    height: unset;
+}
+
 .cat {
     max-width: 60px;
     max-height: 60px;
@@ -39,17 +43,6 @@ body {
     color: #000;
 }
 
-.artistInfo {
-    width: 300px;
-    height: 300px;
-    color: #fff;
-    background: #073245;
-    border-style: solid;
-    border-color: #566266;
-    border-width: 1px;
-    border-radius: 25px;
-}
-
 #artistName {
     background: #566266;
 }
@@ -58,24 +51,14 @@ body {
     background: #566266;
 }
 
-.topSongs {
-    width: 300px;
-    height: 300px;
-    color: #fff;
-    background: #073245;
-    border-style: solid;
-    border-color: #566266;
-    border-width: 1px;
-    border-radius: 25px;
-}
 
 .artistImage {
     border-radius: 25px;
 }
 
-.albums {
+.albums, .topSong, .artistInfo {
     width: 300px;
-    height: 300px;
+    min-height: 300px;
     color: #fff;
     background: #073245;
     border-style: solid;
