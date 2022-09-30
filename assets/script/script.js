@@ -1,6 +1,6 @@
 //On the three lines below we are globally defining some of our variables.
 const formSubmit = document.querySelector(`form`);
-const bioElement = document.querySelector('#bio');
+const bioElement = document.querySelector('#bioInfo');
 const relatedElement = document.querySelector('#relatedArtist');
 const inputX = document.getElementById(`searchX`);
 //Runs after form has been submitted.  It prevents the page from being refreshed and and passes the artist name too the getArtistInformation function.
