@@ -37,7 +37,7 @@ body {
 
 .artistInfo {
     width: 300px;
-    height: 300px;
+    height: 350px;
     color: #fff;
     background: #073245;
     border-style: solid;
@@ -55,7 +55,7 @@ body {
 
 .topSongs {
     width: 300px;
-    height: 300px;
+    height: 350px;
     color: #fff;
     background: #073245;
     border-style: solid;
@@ -65,7 +65,7 @@ body {
 
 .albums {
     width: 300px;
-    height: 300px;
+    height: 350px;
     color: #fff;
     background: #073245;
     border-style: solid;
@@ -79,6 +79,7 @@ body {
 
 #bio {
     width: 500px;
+    height: 350px;
     background: #073245;
     border-style: solid;
     border-color: #566266;
@@ -91,6 +92,7 @@ body {
 
 #related {
     width: 500px;
+    height: 350px;
     background: #073245;
     border-style: solid;
     border-color: #566266;
@@ -143,7 +145,7 @@ footer {
     text-shadow: 2px 2px 3px #4a4a4a;
 }
 
-@media screen and (max-width: 600px;) {
+/* @media screen and (max-width: 600px;) {
     .carousel {
         flex-wrap: wrap;
     }
@@ -152,5 +154,5 @@ footer {
         background-color: red;
     }
 
-}
+} */
 
