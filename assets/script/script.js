@@ -51,6 +51,7 @@ function displayTopAlbumTrackImg(data){
     }
 };
 
+
 function displayArtistBio(response) {
     console.log(response)
     const bio = response.artist.bio.summary;
