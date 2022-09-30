@@ -33,6 +33,21 @@ function saveTopAlbumTrackImg(data){
     displayTopAlbumTrackImg(savedTopData);
 };
 
+function saveRelated(response){
+    console.log(response)
+    let artistBio = {
+        bio: `${response.artist.bio.summary}`,
+        related: []
+    };
+    for(i = 0 ; i < response.artist.similar.artist.length; i++) {
+        let related = response.artist.similar.artist[i]
+        artistBio.related.push(related);
+    };
+    localStorage.setItem(`artistBioInfo`,JSON.stringify(artistBio));
+    let savedBioRelatedData = JSON.parse(localStorage.getItem(`artistBioInfo`));
+    displayArtistBio(savedBioRelatedData);
+    };
+
 //Grabs information from spotify api first then runs displayTopAlbumTrackImg.  After that it grabs information from audioScrobbler and runs displayArtistBio.
 function getArtistInformation(searchedArtist){
     const options = {
@@ -50,7 +65,7 @@ function getArtistInformation(searchedArtist){
 
     fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${searchedArtist}&api_key=9195d8a142e3b0b3cc4437139475f607&format=json`)
         .then((response) => response.json())
-        .then((response) => displayArtistBio(response))
+        .then((response) => saveRelated(response))
         .catch((err) => console.error(err));
 };
 // takes the info from the spotify api and displays it.
@@ -71,13 +86,13 @@ function displayTopAlbumTrackImg(data){
         let $albumLi = document.createElement(`li`);
         $albumLi.textContent = data.albums[i];
         $ulTopAlbums.appendChild($albumLi);
-    };
+};
 };
 //Takes in data from the audioScrobbler and displays a bio about the artist and displays similar artist.
 function displayArtistBio(response) {
     console.log(response);
-    const bio = response.artist.bio.summary;
-    const relatedArtistArray = response.artist.similar.artist;
+    const bio = response.bio;
+    const relatedArtistArray = response.related;
     const relatedArtist = [];
     relatedArtistArray.forEach((element) => {
         const name = element.name;
@@ -96,9 +111,14 @@ function displayArtistBio(response) {
 };
 
 //Listens for the submit on the input to run searchAllApi function.
-formSubmit.addEventListener(`submit`, searchAllApi);
+    formSubmit.addEventListener(`submit`, searchAllApi);
 
 if(JSON.parse(localStorage.getItem(`savedTATIData`)) !== null){
     let saved = JSON.parse(localStorage.getItem(`savedTATIData`))
     displayTopAlbumTrackImg(saved);
+}
+
+if(JSON.parse(localStorage.getItem(`artistBioInfo`)) !== null){
+    let savedBioInfo = JSON.parse(localStorage.getItem(`artistBioInfo`))
+    displayArtistBio(savedBioInfo);
 }
