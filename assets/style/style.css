@@ -47,6 +47,7 @@ body {
     border-style: solid;
     border-color: #566266;
     border-width: 1px;
+    border-radius: 25px;
 }
 
 #artistName {
@@ -65,6 +66,11 @@ body {
     border-style: solid;
     border-color: #566266;
     border-width: 1px;
+    border-radius: 25px;
+}
+
+.artistImage {
+    border-radius: 25px;
 }
 
 .albums {
@@ -75,6 +81,7 @@ body {
     border-style: solid;
     border-color: #566266;
     border-width: 1px;
+    border-radius: 25px;
 }
 
 #knownAlbum {
@@ -87,6 +94,7 @@ body {
     border-style: solid;
     border-color: #566266;
     border-width: 1px;
+    border-radius: 25px;
 }
 
 #bio-text {
@@ -99,6 +107,7 @@ body {
     border-style: solid;
     border-color: #566266;
     border-width: 1px; 
+    border-radius: 25px;
 }
 
 #related-text {
