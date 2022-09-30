@@ -81,9 +81,7 @@ body {
 
     width: 300px;
     height: 300px;
-=======
     color: #fff;
-
     background: #073245;
     border-style: solid;
     border-color: #566266;
@@ -130,14 +128,13 @@ body {
 }
 
 
-
-.stats {
+/*.stats {
     background: linear-gradient(45deg, #000000e0, #35d3b6cc);
     color: #ffffffc9;
     font-size: large;
     font-weight: 600;
     text-shadow: 2px 2px 3px #4a4a4a;
-}
+} */
 
 #artistImg {
     max-width: 200px;
@@ -150,8 +147,8 @@ footer {
   }
   
   .responsive {
-    max-width: 60px;
-    max-height: 60px;
+    max-width: 100%;
+    height: auto;
   }
 
 /*
