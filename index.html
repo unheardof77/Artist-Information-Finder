@@ -22,9 +22,9 @@
                         <div class="nav-wrapper">
                             <form class="inputColor">
                                 <div class="input-field">
-                                    <input id="search" type="search" required>
+                                    <input id="search" type="search" placeholder="Search for an artist" required>
                                     <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                                    <i class="material-icons">close</i>
+                                    <i id="searchX" class="material-icons">close</i>
                                 </div>
                             </form>
                         </div>
@@ -34,33 +34,44 @@
                     <li><a href="#bio">Bio</a></li>
                     <li><a href="#artistImg">Images</a></li>
                 </ul>
+            </div>
         </nav>
+        <!-- This is the loading bar -->
+        <div class="progress">
+            <div class="indeterminate"></div>
+        </div>
     </header>
     <main class="main">
         <section class="carousel">
-
             <section class="topSongs">
-                <div class="card" style="background: #073245;">
-                    <div class="container">
-                        <h2 id="topTracks">Top Tracks</h2>
+                <div style="background: #073245;">
+                    <div>
+                        <h3 id="topTracks">Top Tracks</h3>
                         <section class="trackList">
                             <ul id="bestOf"></ul>
                     </div>
                 </div>
             </section>            
             <section class="artistInfo">
-                <div class="card-image" style="background: #073245;">
-                    <img id="artistImg" alt="coverArt" style="width:100%">
-                    <div class="container">
-                        <h2 id="artistName">Artist Name</h2>
+                <div style="background: #073245;">
+                    <img id="artistImg" alt="coverArt">
+                    <div>
+                        <h3 id="artistName">Artist Name</h3>
                     </div>
                 </div>
             </section>
             <section class="albums">
+
                 <div class="card" style="background: #073245;">
                     <div class="container">
                         <h2 id="knownAlbum">Artist Albums</h2>
                         <section class="albumList" style="width:100%">
+
+                <div  style="background: #073245;">
+                    <div>
+                        <h3 id="knownAlbum">Artist Albums</h3>
+                        <section class="albumList">
+
                             <ul id="listedAlbums">
                             </ul>
                     </div>
@@ -74,7 +85,7 @@
         </section>
         <section id="related" class="col s12">
             <h2 id="related-text">Related Acts</h2>
-            <ul>
+            <ul id="relatedArtist">
                 <li id="related-1"></li>
                 <li id="related-2"></li>
                 <li id="related-3"></li>
@@ -82,23 +93,23 @@
         </section>
     </section>
     </main>
-    <footer>
-        <nav class="header-footer" style="background: #073245;">
-            <div class="nav-wrapper">
-                <!-- <div>
-                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub Kitty logo"
-                        class="responsive">
-                </div> -->
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="https://github.com/unheardof77" target="_blank" rel="noopener noreferrer">Morgan Tolman</a></li>
-                    <li><a href="https://github.com/LeoRocca40" target="_blank" rel="noopener noreferrer">Leo Roccaforte</a></li>
-                    <li><a href="https://github.com/FunnyLookingFish" target="_blank" rel="noopener noreferrer">Lu Morales</a></li>
-                    <li><a href="https://github.com/IAMFALZIII" target="_blank" rel="noopener noreferrer">Fernando Zamora</a></li>
-                    <li><a href="https://github.com/joyhaliday" target="_blank" rel="noopener noreferrer">Joy Haliday</a></li>
-                </ul>
-            </div>
-        </nav>
-    </footer>
 </body>
+<footer>
+    <nav class="header-footer" style="background: #073245;">
+        <div class="nav-wrapper">
+            <div class="cat">
+                <!--<img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub Kitty logo"
+                    class="responsive">-->
+            </div>
+            <ul id="nav-mobile" class="crew">
+                <li><a href="https://github.com/unheardof77" target="_blank" rel="noopener noreferrer">Morgan Tolman</a></li>
+                <li><a href="https://github.com/LeoRocca40" target="_blank" rel="noopener noreferrer">Leo Roccaforte</a></li>
+                <li><a href="https://github.com/FunnyLookingFish" target="_blank" rel="noopener noreferrer">Lu Morales</a></li>
+                <li><a href="https://github.com/IAMFALZIII" target="_blank" rel="noopener noreferrer">Fernando Zamora</a></li>
+                <li><a href="https://github.com/joyhaliday" target="_blank" rel="noopener noreferrer">Joy Haliday</a></li>
+            </ul>
+        </div>
+    </nav>
+</footer>
 
 </html>
