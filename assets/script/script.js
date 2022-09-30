@@ -74,3 +74,4 @@ function displayArtistBio(response) {
 
 //Listens for the submit on the input to run searchAllApi function.
     formSubmit.addEventListener(`submit`, searchAllApi);
+

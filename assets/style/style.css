@@ -4,23 +4,33 @@ body {
     color: #fff;
 }
 
+.row {
+    max-width: 560px;
+    max-height: 400px;
+}
+
+.cat {
+    max-width: 60px;
+    max-height: 60px;
+}
+
 .container {
     background-color: gray;
     color: black;
+    max-width: 150px;
+    max-height: 150px;
 }
 
 .main {
     display: flex;
     flex-wrap: wrap;
-
 }
 
 .carousel {
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: space-evenly;
-    
+    flex-wrap: wrap;
 }
 
 .artistInfo {
@@ -96,37 +106,17 @@ body {
     text-shadow: 2px 2px 3px #4a4a4a;
 }
 
-
-/*
-#stat1 {
-    background: linear-gradient(45deg, #000000e0, #35d3b6cc);
-    color: #ffffffc9;
-    font-size: large;
-    font-weight: 600;
-    text-shadow: 2px 2px 3px #4a4a4a;
+#artistImg {
+    max-width: 200px;
 }
 
-#stat2 {
-    background: linear-gradient(45deg, #000000e0, #35d3b6cc);
-    color: #ffffffc9;
-    font-size: large;
-    font-weight: 600;
-    text-shadow: 2px 2px 3px #4a4a4a;
-}
+@media screen and (max-width: 600px;) {
+    .carousel {
+        flex-wrap: wrap;
+    }
 
-#stat3 {
-    background: linear-gradient(45deg, #000000e0, #35d3b6cc);
-    color: #ffffffc9;
-    font-size: large;
-    font-weight: 600;
-    text-shadow: 2px 2px 3px #4a4a4a;
-}
+    body {
+        background-color: red;
+    }
 
-#stat4 {
-    background: linear-gradient(45deg, #000000e0, #35d3b6cc);
-    color: #ffffffc9;
-    font-size: large;
-    font-weight: 600;
-    text-shadow: 2px 2px 3px #4a4a4a;
 }
-*/
