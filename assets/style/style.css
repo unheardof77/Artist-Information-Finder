@@ -147,7 +147,7 @@ footer {
 
 }
 
-@media screen and (max-width: 600px;) {
+@media screen and (max-width: 600px) {
     .carousel {
         flex-wrap: wrap;
     }
@@ -156,5 +156,4 @@ footer {
         background-color: red;
     }
 
-} */
-
+} 
