@@ -1,11 +1,13 @@
 //On the three lines below we are globally defining some of our variables.
-let formSubmit = document.querySelector(`form`);
+const formSubmit = document.querySelector(`form`);
 const bioElement = document.querySelector('#bio');
 const relatedElement = document.querySelector('#relatedArtist');
+const inputX = document.getElementById(`searchX`);
+let searchedArtist = document.querySelector(`#search`);
 //Runs after form has been submitted.  It prevents the page from being refreshed and and passes the artist name too the getArtistInformation function.
 function searchAllApi(event){
     event.preventDefault();
-    let searchedArtist = document.querySelector(`input`).value.trim().replaceAll(` `, `+`);
+    searchedArtist = searchedArtist.value.trim().replaceAll(` `, `+`);
     $artistName = document.getElementById(`artistName`)
     $artistName.textContent = ""
     $artistName.textContent = searchedArtist.replaceAll(`+`, ` `);
@@ -72,5 +74,11 @@ function displayArtistBio(response) {
         relatedElement.appendChild(li);
     });
 };
+
+function deleteInputContent(){
+    searchedArtist.value= "";
+};
 //Listens for the submit on the input to run searchAllApi function.
 formSubmit.addEventListener(`submit`, searchAllApi);
+//Listens for a click on the X in the search bar.
+inputX.addEventListener(`click`, deleteInputContent);
