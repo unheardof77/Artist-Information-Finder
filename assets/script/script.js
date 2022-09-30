@@ -12,6 +12,27 @@ function searchAllApi(event){
     $artistName.textContent = searchedArtist.replaceAll(`+`, ` `);
     getArtistInformation(searchedArtist);
 };
+
+function saveTopAlbumTrackImg(data){
+    let savedTATIData = {
+        img: `${data.artists.items[0].data.visuals.avatarImage.sources[0].url}`,
+        tracks: [],
+        albums: []
+    };
+    for(i=0; i < data.tracks.items.length; i++ ){
+        let tracks = data.tracks.items[i].data.name;
+        savedTATIData.tracks.push(tracks);
+    };
+    for(i=0; i < data.albums.items.length; i ++){
+        let albums = data.albums.items[i].data.name;
+        savedTATIData.albums.push(albums);
+    };
+    localStorage.setItem(`savedTATIData`,JSON.stringify(savedTATIData));
+    let savedTopData = JSON.parse(localStorage.getItem(`savedTATIData`));
+    console.log(savedTopData);
+    displayTopAlbumTrackImg(savedTopData);
+};
+
 //Grabs information from spotify api first then runs displayTopAlbumTrackImg.  After that it grabs information from audioScrobbler and runs displayArtistBio.
 function getArtistInformation(searchedArtist){
     const options = {
@@ -24,7 +45,7 @@ function getArtistInformation(searchedArtist){
     
     fetch(`https://spotify23.p.rapidapi.com/search/?q=${searchedArtist}&type=multi&offset=0&limit=10&numberOfTopResults=5`, options)
         .then(response => response.json())
-        .then(response => displayTopAlbumTrackImg(response))
+        .then(response => saveTopAlbumTrackImg(response))
         .catch(err => console.error(err));
 
     fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${searchedArtist}&api_key=9195d8a142e3b0b3cc4437139475f607&format=json`)
@@ -38,17 +59,17 @@ function displayTopAlbumTrackImg(data){
     let $artistImg = document.getElementById(`artistImg`);
     let $ulTopTracks = document.getElementById(`bestOf`);
     let $ulTopAlbums = document.getElementById(`listedAlbums`);
-    $artistImg.src = `${data.artists.items[0].data.visuals.avatarImage.sources[0].url}`;
+    $artistImg.src = `${data.img}`;
     $ulTopTracks.innerHTML = "";
-    for(i=0; i < data.tracks.items.length; i++ ){
+    for(i=0; i < data.tracks.length; i++ ){
         let $li = document.createElement(`li`);
-        $li.textContent = data.tracks.items[i].data.name;
+        $li.textContent = data.tracks[i];
         $ulTopTracks.appendChild($li);
     };
     $ulTopAlbums.innerHTML = "";
-    for(i=0; i < data.albums.items.length; i ++){
+    for(i=0; i < data.albums.length; i ++){
         let $albumLi = document.createElement(`li`);
-        $albumLi.textContent = data.albums.items[i].data.name;
+        $albumLi.textContent = data.albums[i];
         $ulTopAlbums.appendChild($albumLi);
     };
 };
@@ -76,3 +97,8 @@ function displayArtistBio(response) {
 
 //Listens for the submit on the input to run searchAllApi function.
 formSubmit.addEventListener(`submit`, searchAllApi);
+
+if(JSON.parse(localStorage.getItem(`savedTATIData`)) !== null){
+    let saved = JSON.parse(localStorage.getItem(`savedTATIData`))
+    displayTopAlbumTrackImg(saved);
+}
