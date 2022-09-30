@@ -1,7 +1,10 @@
 body {
     background-color: #293D45;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: #fff;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
@@ -11,7 +14,8 @@ body {
 .main {
     display: flex;
     flex-wrap: wrap;
-    text-align: center;
+    color: #fff;
+    flex-grow: 1;
 }
 
 .carousel {
@@ -19,12 +23,13 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    
+    color: #000;
 }
 
 .artistInfo {
     width: 300px;
     height: 300px;
+    color: #fff;
     background: #073245;
     border-style: solid;
     border-color: #566266;
@@ -42,6 +47,7 @@ body {
 .topSongs {
     width: 300px;
     height: 300px;
+    color: #fff;
     background: #073245;
     border-style: solid;
     border-color: #566266;
@@ -51,6 +57,7 @@ body {
 .albums {
     width: 300px;
     height: 300px;
+    color: #fff;
     background: #073245;
     border-style: solid;
     border-color: #566266;
@@ -97,3 +104,57 @@ body {
 }
 
 
+.stats {
+    background: linear-gradient(45deg, #000000e0, #35d3b6cc);
+    color: #ffffffc9;
+    font-size: large;
+    font-weight: 600;
+    text-shadow: 2px 2px 3px #4a4a4a;
+}
+
+footer {
+    display: flex;
+    align-items: flex-end;
+    /* position: absolute;
+    bottom: 0;
+    width: 100%; */
+  }
+  
+  .responsive {
+    max-width: 60px;
+    max-height: 60px;
+  }
+
+/*
+#stat1 {
+    background: linear-gradient(45deg, #000000e0, #35d3b6cc);
+    color: #ffffffc9;
+    font-size: large;
+    font-weight: 600;
+    text-shadow: 2px 2px 3px #4a4a4a;
+}
+
+#stat2 {
+    background: linear-gradient(45deg, #000000e0, #35d3b6cc);
+    color: #ffffffc9;
+    font-size: large;
+    font-weight: 600;
+    text-shadow: 2px 2px 3px #4a4a4a;
+}
+
+#stat3 {
+    background: linear-gradient(45deg, #000000e0, #35d3b6cc);
+    color: #ffffffc9;
+    font-size: large;
+    font-weight: 600;
+    text-shadow: 2px 2px 3px #4a4a4a;
+}
+
+#stat4 {
+    background: linear-gradient(45deg, #000000e0, #35d3b6cc);
+    color: #ffffffc9;
+    font-size: large;
+    font-weight: 600;
+    text-shadow: 2px 2px 3px #4a4a4a;
+}
+*/

@@ -22,9 +22,9 @@
                         <div class="nav-wrapper">
                             <form class="inputColor">
                                 <div class="input-field">
-                                    <input id="search" type="search" required>
+                                    <input id="search" type="search" placeholder="Search for an artist" required>
                                     <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                                    <i class="material-icons">close</i>
+                                    <i id="searchX" class="material-icons">close</i>
                                 </div>
                             </form>
                         </div>
@@ -34,7 +34,12 @@
                     <li><a href="#bio">Bio</a></li>
                     <li><a href="#artistImg">Images</a></li>
                 </ul>
+            </div>
         </nav>
+        <!-- This is the loading bar -->
+        <div class="progress">
+            <div class="indeterminate"></div>
+        </div>
     </header>
     <main class="main">
         <section class="carousel">
@@ -74,7 +79,7 @@
         </section>
         <section id="related" class="col s12">
             <h2 id="related-text">Related Acts</h2>
-            <ul>
+            <ul id="relatedArtist">
                 <li id="related-1"></li>
                 <li id="related-2"></li>
                 <li id="related-3"></li>
@@ -85,9 +90,8 @@
     <footer>
         <nav class="header-footer" style="background: #073245;">
             <div class="nav-wrapper">
-                <!-- <div>
-                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub Kitty logo"
-                        class="responsive">
+                <!-- <div class="responsive">
+                    <img class="left hide-on-med-and-down" src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub Kitty logo">
                 </div> -->
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="https://github.com/unheardof77" target="_blank" rel="noopener noreferrer">Morgan Tolman</a></li>
