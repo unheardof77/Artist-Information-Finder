@@ -96,9 +96,14 @@ function displayArtistBio(response) {
 };
 
 //Listens for the submit on the input to run searchAllApi function.
+<<<<<<< HEAD
+    formSubmit.addEventListener(`submit`, searchAllApi);
+
+=======
 formSubmit.addEventListener(`submit`, searchAllApi);
 
 if(JSON.parse(localStorage.getItem(`savedTATIData`)) !== null){
     let saved = JSON.parse(localStorage.getItem(`savedTATIData`))
     displayTopAlbumTrackImg(saved);
 }
+>>>>>>> c3aac92e55c2eb3b4e738f72584158f959bdd81c
