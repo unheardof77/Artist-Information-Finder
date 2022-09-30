@@ -1,7 +1,17 @@
+//On the three lines below we are globally defining some of our variables.
 let formSubmit = document.querySelector(`form`);
 const bioElement = document.querySelector('#bio');
-const relatedElement = document.querySelector('#related');
-//Grabs information from spotify api
+const relatedElement = document.querySelector('#relatedArtist');
+//Runs after form has been submitted.  It prevents the page from being refreshed and and passes the artist name too the getArtistInformation function.
+function searchAllApi(event){
+    event.preventDefault();
+    let searchedArtist = document.querySelector(`input`).value.trim().replaceAll(` `, `+`);
+    $artistName = document.getElementById(`artistName`)
+    $artistName.textContent = ""
+    $artistName.textContent = searchedArtist.replaceAll(`+`, ` `);
+    getArtistInformation(searchedArtist);
+};
+//Grabs information from spotify api first then runs displayTopAlbumTrackImg.  After that it grabs information from audioScrobbler and runs displayArtistBio.
 function getArtistInformation(searchedArtist){
     const options = {
         method: 'GET',
@@ -21,18 +31,9 @@ function getArtistInformation(searchedArtist){
         .then((response) => displayArtistBio(response))
         .catch((err) => console.error(err));
 };
-//Runs after submit event listener, passes searched artist through to API fetch
-function searchAllApi(event){
-    event.preventDefault();
-    let searchedArtist = document.querySelector(`input`).value.trim().replaceAll(` `, `+`);
-    $artistName = document.getElementById(`artistName`)
-    $artistName.textContent = ""
-    $artistName.textContent = searchedArtist.replaceAll(`+`, ` `);
-    getArtistInformation(searchedArtist);
-};
 // takes the info from the spotify api and displays it.
 function displayTopAlbumTrackImg(data){
-    console.log(data)
+    console.log(data);
     let $artistImg = document.getElementById(`artistImg`);
     let $ulTopTracks = document.getElementById(`bestOf`);
     let $ulTopAlbums = document.getElementById(`listedAlbums`);
@@ -48,11 +49,11 @@ function displayTopAlbumTrackImg(data){
         let $albumLi = document.createElement(`li`);
         $albumLi.textContent = data.albums.items[i].data.name;
         $ulTopAlbums.appendChild($albumLi);
-    }
+    };
 };
-
+//Takes in data from the audioScrobbler and displays a bio about the artist and displays similar artist.
 function displayArtistBio(response) {
-    console.log(response)
+    console.log(response);
     const bio = response.artist.bio.summary;
     const relatedArtistArray = response.artist.similar.artist;
     const relatedArtist = [];
@@ -62,15 +63,14 @@ function displayArtistBio(response) {
     });
     if (relatedArtist.length > 5) {
         relatedArtist.length = 5;
-    }
+    };
     bioElement.innerHTML = bio;
     relatedElement.innerHTML = '';
     relatedArtist.forEach((item) => {
-        let li = document.createElement('p');
+        let li = document.createElement('li');
         li.innerText = item;
         relatedElement.appendChild(li);
     });
-}
-
+};
 //Listens for the submit on the input to run searchAllApi function.
-    formSubmit.addEventListener(`submit`, searchAllApi);
+formSubmit.addEventListener(`submit`, searchAllApi);
