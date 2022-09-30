@@ -73,6 +73,7 @@ body {
 
 #bio {
     width: 500px;
+    height: 350px;
     background: #073245;
     border-style: solid;
     border-color: #566266;
@@ -86,6 +87,7 @@ body {
 
 #related {
     width: 500px;
+    height: 350px;
     background: #073245;
     border-style: solid;
     border-color: #566266;
@@ -154,5 +156,5 @@ footer {
         background-color: red;
     }
 
-}
+} */
 
