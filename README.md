@@ -15,11 +15,11 @@ Provide a short description explaining the what, why, and how of your project. U
 
 ## Credits
 
-[Fernando](https://www.example.com)
-[Joy](https://www.example.com)
-[Leo](https://www.example.com)
-[Lu](https://www.example.com)
-[Morgan Tolman](https://www.example.com)
+[Fernando](https://github.com/IAMFALZIII)
+[Joy](https://github.com/joyhaliday)
+[Leo](https://github.com/LeoRocca40)
+[Lu](https://github.com/FunnyLookingFish)
+[Morgan Tolman](https://github.com/unheardof77)
 
 ## License
 
