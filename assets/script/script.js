@@ -5,6 +5,18 @@ const relatedElement = document.querySelector('#relatedArtist');
 const inputX = document.getElementById(`searchX`);
 let searchedArtist = "";
 let $artistName = document.getElementById(`artistName`);
+let isLoading = false
+
+function loadingBar(){
+    const header = document.querySelector(`header`);
+    const loadingProgress = document.getElementById(`loadingBar`);
+    if(isLoading){
+        loadingProgress.style.display = `inline-block`;
+    }else{
+        loadingProgress.style.display = `none`;
+    };
+};
+
 //Runs after form has been submitted.  It prevents the page from being refreshed and and passes the artist name to the getArtistInformation function.
 function searchAllApi(event){
     event.preventDefault();
@@ -49,6 +61,8 @@ function saveRelated(response){
 };
 //Grabs information from spotify api first then runs displayTopAlbumTrackImg.  After that it grabs information from audioScrobbler and runs displayArtistBio.
 function getArtistInformation(searchedArtist){
+    isLoading = true;
+    loadingBar();
     const options = {
         method: 'GET',
         headers: {
@@ -69,6 +83,8 @@ function getArtistInformation(searchedArtist){
 };
 // takes the info from the spotify api and displays it.
 function displayTopAlbumTrackImg(data){
+    isLoading = false;
+    loadingBar();
     console.log(data);
     let $artistImg = document.getElementById(`artistImg`);
     let $ulTopTracks = document.getElementById(`bestOf`);
