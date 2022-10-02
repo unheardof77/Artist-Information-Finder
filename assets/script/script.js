@@ -114,9 +114,9 @@ function displayArtistBio(response) {
 if(JSON.parse(localStorage.getItem(`savedTATIData`)) !== null){
     let saved = JSON.parse(localStorage.getItem(`savedTATIData`));
     displayTopAlbumTrackImg(saved);
-}
+};
 //checks if there is saved data in local storage and if there is then it runs its correlating  function passing it along as a parameter.
 if(JSON.parse(localStorage.getItem(`artistBioInfo`)) !== null){
     let savedBioInfo = JSON.parse(localStorage.getItem(`artistBioInfo`));
     displayArtistBio(savedBioInfo);
-}
+};
