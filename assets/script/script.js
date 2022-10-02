@@ -3,18 +3,18 @@ const formSubmit = document.querySelector(`form`);
 const bioElement = document.querySelector('#bioInfo');
 const relatedElement = document.querySelector('#relatedArtist');
 const inputX = document.getElementById(`searchX`);
+let searchedArtist = "";
+let $artistName = document.getElementById(`artistName`);
 //Runs after form has been submitted.  It prevents the page from being refreshed and and passes the artist name to the getArtistInformation function.
 function searchAllApi(event){
     event.preventDefault();
     searchedArtist = document.getElementById(`search`).value.trim().replaceAll(` `, `+`);
-    $artistName = document.getElementById(`artistName`);
-    $artistName.textContent = "";
-    $artistName.textContent = searchedArtist.replaceAll(`+`, ` `);
     getArtistInformation(searchedArtist);
 };
 //SaveTopAlbumTrackImg function saves data from its fetch call to local storage.
 function saveTopAlbumTrackImg(data){
     let savedTATIData = {
+        name: `${searchedArtist.replaceAll(`+`, ` `)}`,
         img: `${data.artists.items[0].data.visuals.avatarImage.sources[0].url}`,
         tracks: [],
         albums: []
@@ -73,6 +73,8 @@ function displayTopAlbumTrackImg(data){
     let $artistImg = document.getElementById(`artistImg`);
     let $ulTopTracks = document.getElementById(`bestOf`);
     let $ulTopAlbums = document.getElementById(`listedAlbums`);
+    $artistName.textContent = "";
+    $artistName.textContent = `${data.name}`;
     $artistImg.src = `${data.img}`;
     $ulTopTracks.innerHTML = "";
     for(i=0; i < data.tracks.length; i++ ){
@@ -109,7 +111,7 @@ function displayArtistBio(response) {
     });
 };
 //Listens for the submit on the input to run searchAllApi function.
-    formSubmit.addEventListener(`submit`, searchAllApi);
+formSubmit.addEventListener(`submit`, searchAllApi);
 //checks if there is saved data in local storage and if there is then it runs its correlating  function passing it along as a parameter.
 if(JSON.parse(localStorage.getItem(`savedTATIData`)) !== null){
     let saved = JSON.parse(localStorage.getItem(`savedTATIData`));
