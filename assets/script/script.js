@@ -3,9 +3,10 @@ const formSubmit = document.querySelector(`form`);
 const bioElement = document.querySelector('#bioInfo');
 const relatedElement = document.querySelector('#relatedArtist');
 const inputX = document.getElementById(`searchX`);
-let searchedArtist = "";
 let $artistName = document.getElementById(`artistName`);
-let isLoading = false
+const relatedArtistSection = document.getElementById(`relatedArtist`);
+let searchedArtist = "";
+let isLoading = false;
 //Hides or displays a loading bar depending on wether isLoading is true or false.
 function loadingBar(){
     const header = document.querySelector(`header`);
@@ -15,6 +16,13 @@ function loadingBar(){
     }else{
         loadingProgress.style.display = `none`;
     };
+};
+//When function is called it searches for the related artist that was clicked on.
+function relatedArtistSearch(event){
+    clickedRelated = event.target.getAttribute(`relatedName`);
+    searchedArtist = clickedRelated
+    clickedRelated = clickedRelated.replaceAll(` `, `+`);
+    getArtistInformation(clickedRelated);
 };
 //Runs after form has been submitted.  It prevents the page from being refreshed and and passes the artist name to the getArtistInformation function.
 function searchAllApi(event){
@@ -121,12 +129,15 @@ function displayArtistBio(response) {
     relatedElement.innerHTML = '';
     relatedArtist.forEach((item) => {
         let li = document.createElement('li');
+        li.setAttribute(`relatedName`, item);
         li.innerText = item;
         relatedElement.appendChild(li);
     });
 };
 //Listens for the submit on the input to run searchAllApi function.
 formSubmit.addEventListener(`submit`, searchAllApi);
+//listens for a click on any of the li elements in the related artist list.
+relatedArtistSection.addEventListener(`click`, relatedArtistSearch)
 //checks if there is saved data in local storage and if there is then it runs its correlating  function passing it along as a parameter.
 if(JSON.parse(localStorage.getItem(`savedTATIData`)) !== null){
     let saved = JSON.parse(localStorage.getItem(`savedTATIData`));
