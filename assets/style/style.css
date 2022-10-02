@@ -56,7 +56,7 @@ body {
     border-radius: 25px;
 }
 
-.albums, .topSong, .artistInfo {
+.albums, .topSongs, .artistInfo {
     width: 300px;
     min-height: 300px;
     color: #fff;
