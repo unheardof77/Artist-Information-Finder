@@ -30,6 +30,10 @@ function searchAllApi(event){
     searchedArtist = document.getElementById(`search`).value.trim().replaceAll(` `, `+`);
     getArtistInformation(searchedArtist);
 };
+//Runs when user clicks on the 'x' to erase the text in the search bar.
+inputX.addEventListener("click", function() {
+    document.getElementById(`search`).value = " ";
+});
 //SaveTopAlbumTrackImg function saves data from its fetch call to local storage.
 function saveTopAlbumTrackImg(data){
     let savedTATIData = {
