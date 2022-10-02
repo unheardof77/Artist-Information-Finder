@@ -15,18 +15,6 @@ body {
     height: unset;
 }
 
-.cat {
-    max-width: 60px;
-    max-height: 60px;
-}
-
-.container {
-    background-color: gray;
-    color: black;
-    max-width: 150px;
-    max-height: 150px;
-}
-
 .main {
     display: flex;
     flex-wrap: wrap;
@@ -40,7 +28,6 @@ body {
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    color: #000;
 }
 
 #artistName {
@@ -59,7 +46,6 @@ body {
 .albums, .topSongs, .artistInfo {
     width: 300px;
     min-height: 300px;
-    color: #fff;
     background: #073245;
     border-style: solid;
     border-color: #566266;
@@ -67,8 +53,19 @@ body {
     border-radius: 25px;
 }
 
+.trackList, .albumList, #bioInfo, #relatedArtist {
+    background: #566266;
+}
+
 #knownAlbum {
     background: #566266;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 #bio {
@@ -128,24 +125,24 @@ footer {
     width: 100%; */
 }
 
+.cat {
+    max-width: 60px;
+    max-height: 60px;
+}
+
+.container {
+    background-color: gray;
+    color: black;
+    max-width: 150px;
+    max-height: 150px;
+}
+
+
 .responsive {
     max-width: 60px;
     max-height: 60px;
 }
 
-#stat1 {
-    background: linear-gradient(45deg, #000000e0, #35d3b6cc);
-    color: #ffffffc9;
-    font-size: large;
-    font-weight: 600;
-    text-shadow: 2px 2px 3px #4a4a4a;
-}
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-
-}
 
 @media screen and (max-width: 600px) {
     .carousel {
