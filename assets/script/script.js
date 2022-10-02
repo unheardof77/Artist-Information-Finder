@@ -6,7 +6,7 @@ const inputX = document.getElementById(`searchX`);
 let searchedArtist = "";
 let $artistName = document.getElementById(`artistName`);
 let isLoading = false
-
+//Hides or displays a loading bar depending on wether isLoading is true or false.
 function loadingBar(){
     const header = document.querySelector(`header`);
     const loadingProgress = document.getElementById(`loadingBar`);
@@ -16,7 +16,6 @@ function loadingBar(){
         loadingProgress.style.display = `none`;
     };
 };
-
 //Runs after form has been submitted.  It prevents the page from being refreshed and and passes the artist name to the getArtistInformation function.
 function searchAllApi(event){
     event.preventDefault();
