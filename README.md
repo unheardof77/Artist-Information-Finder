@@ -2,12 +2,9 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
 
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+Our project is a live web application that can take an artist that a user inputs and display details about that artist.  It displays a profile picture of the artist from spotify, there top tracks, there top albums, a short bio about them, and some artist that are similar to them.  We decided to create this web application to help users become more informed and knowledgeable about there favorite artist and discover new artist.  We did this using HTML to get the basic structuring of our application.  We also used materialize and CSS to further structure and style our application.  We used vanilla JavaScript to add functionality to our website.  We did this using a series of functions, eventlisteners, and for loops.  When all of the code comes together it creates a fully functioning web application designed by five different people.
+
 
 ![Application Screenshot](./assets/images/Live%20Application%20Screen%20Shot.JPG)
 
