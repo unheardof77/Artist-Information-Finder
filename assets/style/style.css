@@ -28,7 +28,6 @@ body {
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    color: #000;
 }
 
 #artistName {
@@ -47,7 +46,6 @@ body {
 .albums, .topSongs, .artistInfo {
     width: 300px;
     min-height: 300px;
-    color: #fff;
     background: #073245;
     border-style: solid;
     border-color: #566266;
