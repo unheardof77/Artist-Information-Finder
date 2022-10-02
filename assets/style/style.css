@@ -78,6 +78,10 @@ body {
     border-radius: 25px;
 }
 
+#loadingBar {
+    display: none;
+}
+
 #bio-text {
     background: #566266;
 }
