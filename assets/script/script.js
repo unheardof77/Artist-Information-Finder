@@ -3,16 +3,16 @@ const formSubmit = document.querySelector(`form`);
 const bioElement = document.querySelector('#bioInfo');
 const relatedElement = document.querySelector('#relatedArtist');
 const inputX = document.getElementById(`searchX`);
-//Runs after form has been submitted.  It prevents the page from being refreshed and and passes the artist name too the getArtistInformation function.
+//Runs after form has been submitted.  It prevents the page from being refreshed and and passes the artist name to the getArtistInformation function.
 function searchAllApi(event){
     event.preventDefault();
     searchedArtist = document.getElementById(`search`).value.trim().replaceAll(` `, `+`);
-    $artistName = document.getElementById(`artistName`)
-    $artistName.textContent = ""
+    $artistName = document.getElementById(`artistName`);
+    $artistName.textContent = "";
     $artistName.textContent = searchedArtist.replaceAll(`+`, ` `);
     getArtistInformation(searchedArtist);
 };
-
+//SaveTopAlbumTrackImg function saves data from its fetch call to local storage.
 function saveTopAlbumTrackImg(data){
     let savedTATIData = {
         img: `${data.artists.items[0].data.visuals.avatarImage.sources[0].url}`,
@@ -32,7 +32,7 @@ function saveTopAlbumTrackImg(data){
     console.log(savedTopData);
     displayTopAlbumTrackImg(savedTopData);
 };
-
+//SaveRelated function takes information from the fetch call and stores it in local storage.
 function saveRelated(response){
     console.log(response)
     let artistBio = {
@@ -46,8 +46,7 @@ function saveRelated(response){
     localStorage.setItem(`artistBioInfo`,JSON.stringify(artistBio));
     let savedBioRelatedData = JSON.parse(localStorage.getItem(`artistBioInfo`));
     displayArtistBio(savedBioRelatedData);
-    };
-
+};
 //Grabs information from spotify api first then runs displayTopAlbumTrackImg.  After that it grabs information from audioScrobbler and runs displayArtistBio.
 function getArtistInformation(searchedArtist){
     const options = {
@@ -86,7 +85,7 @@ function displayTopAlbumTrackImg(data){
         let $albumLi = document.createElement(`li`);
         $albumLi.textContent = data.albums[i];
         $ulTopAlbums.appendChild($albumLi);
-};
+    };
 };
 //Takes in data from the audioScrobbler and displays a bio about the artist and displays similar artist.
 function displayArtistBio(response) {
@@ -109,16 +108,15 @@ function displayArtistBio(response) {
         relatedElement.appendChild(li);
     });
 };
-
 //Listens for the submit on the input to run searchAllApi function.
     formSubmit.addEventListener(`submit`, searchAllApi);
-
+//checks if there is saved data in local storage and if there is then it runs its correlating  function passing it along as a parameter.
 if(JSON.parse(localStorage.getItem(`savedTATIData`)) !== null){
-    let saved = JSON.parse(localStorage.getItem(`savedTATIData`))
+    let saved = JSON.parse(localStorage.getItem(`savedTATIData`));
     displayTopAlbumTrackImg(saved);
 }
-
+//checks if there is saved data in local storage and if there is then it runs its correlating  function passing it along as a parameter.
 if(JSON.parse(localStorage.getItem(`artistBioInfo`)) !== null){
-    let savedBioInfo = JSON.parse(localStorage.getItem(`artistBioInfo`))
+    let savedBioInfo = JSON.parse(localStorage.getItem(`artistBioInfo`));
     displayArtistBio(savedBioInfo);
 }
