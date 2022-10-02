@@ -3,13 +3,31 @@ const formSubmit = document.querySelector(`form`);
 const bioElement = document.querySelector('#bioInfo');
 const relatedElement = document.querySelector('#relatedArtist');
 const inputX = document.getElementById(`searchX`);
+let $artistName = document.getElementById(`artistName`);
+const relatedArtistSection = document.getElementById(`relatedArtist`);
+let searchedArtist = "";
+let isLoading = false;
+//Hides or displays a loading bar depending on wether isLoading is true or false.
+function loadingBar(){
+    const header = document.querySelector(`header`);
+    const loadingProgress = document.getElementById(`loadingBar`);
+    if(isLoading){
+        loadingProgress.style.display = `inline-block`;
+    }else{
+        loadingProgress.style.display = `none`;
+    };
+};
+//When function is called it searches for the related artist that was clicked on.
+function relatedArtistSearch(event){
+    clickedRelated = event.target.getAttribute(`relatedName`);
+    searchedArtist = clickedRelated
+    clickedRelated = clickedRelated.replaceAll(` `, `+`);
+    getArtistInformation(clickedRelated);
+};
 //Runs after form has been submitted.  It prevents the page from being refreshed and and passes the artist name to the getArtistInformation function.
 function searchAllApi(event){
     event.preventDefault();
     searchedArtist = document.getElementById(`search`).value.trim().replaceAll(` `, `+`);
-    $artistName = document.getElementById(`artistName`);
-    $artistName.textContent = "";
-    $artistName.textContent = searchedArtist.replaceAll(`+`, ` `);
     getArtistInformation(searchedArtist);
 };
 //Runs when user clicks on the 'x' to erase the text in the search bar.
@@ -19,6 +37,7 @@ inputX.addEventListener("click", function() {
 //SaveTopAlbumTrackImg function saves data from its fetch call to local storage.
 function saveTopAlbumTrackImg(data){
     let savedTATIData = {
+        name: `${searchedArtist.replaceAll(`+`, ` `)}`,
         img: `${data.artists.items[0].data.visuals.avatarImage.sources[0].url}`,
         tracks: [],
         albums: []
@@ -53,6 +72,8 @@ function saveRelated(response){
 };
 //Grabs information from spotify api first then runs displayTopAlbumTrackImg.  After that it grabs information from audioScrobbler and runs displayArtistBio.
 function getArtistInformation(searchedArtist){
+    isLoading = true;
+    loadingBar();
     const options = {
         method: 'GET',
         headers: {
@@ -73,10 +94,14 @@ function getArtistInformation(searchedArtist){
 };
 // takes the info from the spotify api and displays it.
 function displayTopAlbumTrackImg(data){
+    isLoading = false;
+    loadingBar();
     console.log(data);
     let $artistImg = document.getElementById(`artistImg`);
     let $ulTopTracks = document.getElementById(`bestOf`);
     let $ulTopAlbums = document.getElementById(`listedAlbums`);
+    $artistName.textContent = "";
+    $artistName.textContent = `${data.name}`;
     $artistImg.src = `${data.img}`;
     $ulTopTracks.innerHTML = "";
     for(i=0; i < data.tracks.length; i++ ){
@@ -108,12 +133,15 @@ function displayArtistBio(response) {
     relatedElement.innerHTML = '';
     relatedArtist.forEach((item) => {
         let li = document.createElement('li');
+        li.setAttribute(`relatedName`, item);
         li.innerText = item;
         relatedElement.appendChild(li);
     });
 };
 //Listens for the submit on the input to run searchAllApi function.
-    formSubmit.addEventListener(`submit`, searchAllApi);
+formSubmit.addEventListener(`submit`, searchAllApi);
+//listens for a click on any of the li elements in the related artist list.
+relatedArtistSection.addEventListener(`click`, relatedArtistSearch)
 //checks if there is saved data in local storage and if there is then it runs its correlating  function passing it along as a parameter.
 if(JSON.parse(localStorage.getItem(`savedTATIData`)) !== null){
     let saved = JSON.parse(localStorage.getItem(`savedTATIData`));
