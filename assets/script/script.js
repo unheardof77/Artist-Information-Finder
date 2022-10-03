@@ -3,13 +3,19 @@ const formSubmit = document.querySelector(`form`);
 const bioElement = document.querySelector('#bioInfo');
 const relatedElement = document.querySelector('#relatedArtist');
 const inputX = document.getElementById(`searchX`);
-let $artistName = document.getElementById(`artistName`);
 const relatedArtistSection = document.getElementById(`relatedArtist`);
+let $artistName = document.getElementById(`artistName`);
+let windowSize = window.matchMedia(`(max-width: 768px)`)
 let searchedArtist = "";
 let isLoading = false;
+//Checks if the page is smaller than windowSize and if it is it directs them to a new page.
+function changeHtmlPage(){
+    if(windowSize.matches){
+        window.location.replace(`./mobile.html`)
+    }
+};
 //Hides or displays a loading bar depending on wether isLoading is true or false.
 function loadingBar(){
-    const header = document.querySelector(`header`);
     const loadingProgress = document.getElementById(`loadingBar`);
     if(isLoading){
         loadingProgress.style.display = `inline-block`;
@@ -138,6 +144,12 @@ function displayArtistBio(response) {
 formSubmit.addEventListener(`submit`, searchAllApi);
 //listens for a click on any of the li elements in the related artist list.
 relatedArtistSection.addEventListener(`click`, relatedArtistSearch)
+//Runs when user clicks on the 'x' to erase the text in the search bar.
+inputX.addEventListener("click", function() {
+    document.getElementById(`search`).value = " ";
+});
+//listens for a change in the window size.
+windowSize.addEventListener(`change`, changeHtmlPage)
 //checks if there is saved data in local storage and if there is then it runs its correlating  function passing it along as a parameter.
 if(JSON.parse(localStorage.getItem(`savedTATIData`)) !== null){
     let saved = JSON.parse(localStorage.getItem(`savedTATIData`));
@@ -148,3 +160,5 @@ if(JSON.parse(localStorage.getItem(`artistBioInfo`)) !== null){
     let savedBioInfo = JSON.parse(localStorage.getItem(`artistBioInfo`));
     displayArtistBio(savedBioInfo);
 };
+//Runs changeHtmlPage on page load, basically on page load it checks wether your screen is small enough to switch to a different document.
+changeHtmlPage();
