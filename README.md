@@ -10,6 +10,14 @@ Our project is a live web application that can take an artist that a user inputs
 
 [Live Application](https://unheardof77.github.io/Artist-Information-Finder/)
 
+## How to Use
+
+The application is a simple to use web app where you input the artist name into the search bar and it brings back the information of the requested artist.
+
+## Installation
+
+As a web application there is no need for application install.
+
 ## Credits
 
 [Fernando](https://github.com/IAMFALZIII)
