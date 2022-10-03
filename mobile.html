@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./mobile/mobile.css">
+    <script defer src="./assets/script/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>The Music Index</title>
+</head>
+
+<body>
+    <header>
+        <nav class="nav-wrapper" style="background: #073245;">
+            <a href="#!" class="brand-logo center">The Music Index</a>
+            </div>
+        </nav>
+
+        <div id="loadingBar" class="progress">
+            <div class="indeterminate"></div>
+        </div>
+    </header>
+    <main class="main">
+        <nav>
+            <div class="nav-wrapper">
+                <form class="inputColor">
+                    <div class="input-field">
+                        <input id="search" type="search" placeholder="Search for an artist" required>
+                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                        <i id="searchX" class="material-icons">close</i>
+                    </div>
+                </form>
+            </div>
+        </nav>
+        <section class="carousel cutom-carousel">
+            <section class="artistInfo">
+                <h3 id="artistName">Artist Name</h3>
+                <div class="artistImage" style="background: #073245;">
+                    <img id="artistImg" alt="coverArt">
+                    <div>
+
+                    </div>
+                </div>
+            </section>
+            <section class="topSongs">
+                <div style="background: #073245;">
+                    <div>
+                        <h3 id="topTracks">Top Tracks</h3>
+                        <section class="trackList">
+                            <ul id="bestOf"></ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="albums">
+                <div style="background: #073245;">
+                    <div>
+                        <h3 id="knownAlbum">Artist Albums</h3>
+                        <section class="albumList">
+                            <ul id="listedAlbums">
+                            </ul>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <section class="row">
+            <section id="bio" style="margin-right: 20px;">
+                <h2 id="bio-text">About the Artist</h2>
+                <p id="bioInfo"></p>
+            </section>
+            <section id="related" style="margin-left: 20px;">
+                <h2 id="related-text">Related Acts</h2>
+                <ul id="relatedArtist">
+                </ul>
+            </section>
+        </section>
+    </main>
+    <footer>
+        <nav class="header-footer" style="background: #073245;">
+            <div class="nav-wrapper">
+                <div class="responsive">
+                    <img class="left hide-on-med-and-down"
+                        src="./assets/images/GitHub-Mark/PNG/GitHub-Mark-Light-64px.png" alt="GitHub Kitty logo">
+                </div>
+                <ul id="nav-mobile" class="center hide-on-med-and-down">
+                    <li><a href="https://github.com/unheardof77" target="_blank" rel="noopener noreferrer">Morgan
+                            Tolman</a></li>
+                    <li><a href="https://github.com/LeoRocca40" target="_blank" rel="noopener noreferrer">Leo
+                            Roccaforte</a></li>
+                    <li><a href="https://github.com/FunnyLookingFish" target="_blank" rel="noopener noreferrer">Lu
+                            Morales</a></li>
+                    <li><a href="https://github.com/IAMFALZIII" target="_blank" rel="noopener noreferrer">Fernando
+                            Zamora</a></li>
+                    <li><a href="https://github.com/joyhaliday" target="_blank" rel="noopener noreferrer">Joy
+                            Haliday</a></li>
+                </ul>
+            </div>
+        </nav>
+
+    </footer>
+</body>
+
+</html>
