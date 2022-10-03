@@ -140,6 +140,7 @@ function displayArtistBio(response) {
         relatedElement.appendChild(li);
     });
 };
+
 //Listens for the submit on the input to run searchAllApi function.
 formSubmit.addEventListener(`submit`, searchAllApi);
 //listens for a click on any of the li elements in the related artist list.
