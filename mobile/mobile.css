@@ -138,7 +138,7 @@ footer {
     background-color: #073245;
 }
 
-footer:ul {
+footer: ul {
     display: flex;
     justify-content: center;
 }
