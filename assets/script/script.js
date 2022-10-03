@@ -5,15 +5,8 @@ const relatedElement = document.querySelector('#relatedArtist');
 const inputX = document.getElementById(`searchX`);
 const relatedArtistSection = document.getElementById(`relatedArtist`);
 let $artistName = document.getElementById(`artistName`);
-let windowSize = window.matchMedia(`(max-width: 768px)`)
 let searchedArtist = "";
 let isLoading = false;
-//Checks if the page is smaller than windowSize and if it is it directs them to a new page.
-function changeHtmlPage(){
-    if(windowSize.matches){
-        window.location.replace(`./mobile.html`)
-    }
-};
 //Hides or displays a loading bar depending on wether isLoading is true or false.
 function loadingBar(){
     const loadingProgress = document.getElementById(`loadingBar`);
@@ -54,12 +47,10 @@ function saveTopAlbumTrackImg(data){
     };
     localStorage.setItem(`savedTATIData`,JSON.stringify(savedTATIData));
     let savedTopData = JSON.parse(localStorage.getItem(`savedTATIData`));
-    console.log(savedTopData);
     displayTopAlbumTrackImg(savedTopData);
 };
 //SaveRelated function takes information from the fetch call and stores it in local storage.
 function saveRelated(response){
-    console.log(response)
     let artistBio = {
         bio: `${response.artist.bio.summary}`,
         related: []
@@ -98,7 +89,6 @@ function getArtistInformation(searchedArtist){
 function displayTopAlbumTrackImg(data){
     isLoading = false;
     loadingBar();
-    console.log(data);
     let $artistImg = document.getElementById(`artistImg`);
     let $ulTopTracks = document.getElementById(`bestOf`);
     let $ulTopAlbums = document.getElementById(`listedAlbums`);
@@ -120,7 +110,6 @@ function displayTopAlbumTrackImg(data){
 };
 //Takes in data from the audioScrobbler and displays a bio about the artist and displays similar artist.
 function displayArtistBio(response) {
-    console.log(response);
     const bio = response.bio;
     const relatedArtistArray = response.related;
     const relatedArtist = [];
@@ -148,8 +137,7 @@ relatedArtistSection.addEventListener(`click`, relatedArtistSearch)
 inputX.addEventListener("click", function() {
     document.getElementById(`search`).value = " ";
 });
-//listens for a change in the window size.
-windowSize.addEventListener(`change`, changeHtmlPage)
+
 //checks if there is saved data in local storage and if there is then it runs its correlating  function passing it along as a parameter.
 if(JSON.parse(localStorage.getItem(`savedTATIData`)) !== null){
     let saved = JSON.parse(localStorage.getItem(`savedTATIData`));
@@ -160,5 +148,3 @@ if(JSON.parse(localStorage.getItem(`artistBioInfo`)) !== null){
     let savedBioInfo = JSON.parse(localStorage.getItem(`artistBioInfo`));
     displayArtistBio(savedBioInfo);
 };
-//Runs changeHtmlPage on page load, basically on page load it checks wether your screen is small enough to switch to a different document.
-changeHtmlPage();
